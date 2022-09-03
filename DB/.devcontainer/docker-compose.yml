@@ -1,0 +1,17 @@
+version: "3"
+services:
+  db:
+    image: mysql:8.0.20
+    environment:
+      LANG: C.UTF-8
+      MYSQL_DATABASE: quotes
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - "8081:3306"
+    # 権限の有効化
+    privileged: true
+    volumes:
+      - ../:/workspaces
+      - ../db/init.sql:/docker-entrypoint-initdb.d/init.sql
+

@@ -1,0 +1,16 @@
+version: "3"
+services:
+  server:
+    build:
+      context: ./dockerfile/
+      dockerfile: Dockerfile_server
+    ports:
+      - "8080:80"
+    # 権限の有効化
+    privileged: true
+    environment:
+      # 定数
+      TZ: Asia/Tokyo
+    volumes:
+      - ../:/workspaces
+    command: /sbin/init ## これ
