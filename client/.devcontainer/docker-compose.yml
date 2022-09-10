@@ -5,7 +5,7 @@ services:
       context: ./dockerfile/
       dockerfile: Dockerfile_client
     ports:
-      - "8080:80"
+      - "8082:82"
     # 権限の有効化
     privileged: true
     environment:
@@ -14,5 +14,3 @@ services:
     volumes:
       - ../:/workspaces
     command: /sbin/init ## これ
-
-
