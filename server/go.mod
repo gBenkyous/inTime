@@ -1,3 +1,3 @@
-module github.com/gBenkyous/inTime/tree/master/server
+module intimeServer
 
 go 1.17
