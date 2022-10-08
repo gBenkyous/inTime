@@ -18,7 +18,7 @@ clean:
 test:
 	go test -v
 ### build
-build:build-windows
+build:build-linux
 ### linux用
 build-linux:
 	$(GO_BUILD_LINUX) $(BIN_INTIME) $(CMD_INTIME)
