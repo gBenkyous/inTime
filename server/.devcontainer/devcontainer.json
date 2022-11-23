@@ -18,7 +18,9 @@
 	"settings": {},
 	
 	// Add the IDs of extensions you want installed when the container is created. vscに拡張機能をいれる。
-	"extensions": []
+	"extensions": [
+		"golang.go"
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

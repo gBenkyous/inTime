@@ -8,7 +8,9 @@ GO_BUILD=go build -o
 GO_BUILD_LINUX=GOOS=linux GOARCH=amd64 go build -o
 GO_BUILD_WINDOWS=GOOS=windows GOARCH=amd64 go build -o
 ### ターゲットの定義
-.PHONY:clean test build build-linux build-windows run
+.PHONY:clean test build build-linux build-windows run setup
+### セットアップで何かあれば下記についてきして
+setup:build
 ### ALL
 all:clean test build
 ### クリーン linuxだと動く

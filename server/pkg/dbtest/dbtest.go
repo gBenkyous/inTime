@@ -1,4 +1,4 @@
-package main
+package dbtest
 
 import (
 	"database/sql"
@@ -8,9 +8,9 @@ import (
 	_ "github.com/go-sql-driver/mysql" // このファイルでは使わないが他のパッケージで使う場合「_」入れる
 )
 
-func main() {
+func DbTest() {
 	//sql.Open("mysql", "user:password@/dbname")
-	// [ユーザ名]:[パスワード]@tcp([ホスト名]:[ポート番号])/[データベース名]?charset=[文字コード]
+	// [ユーザ名]:[パスワード]@tcp([ホスト名]:[ポート番号])/[データベース名]?charset=[文字コード] dockerからアクセスの際にはローカルのアドレスを直指定する必要がある
 	db, err := sql.Open("mysql", "user:pass@tcp(localhost:8081)/sample01?charset=utf8mb4") // SQLドライバ接続
 	if err != nil {
 		panic(err.Error())
