@@ -33,6 +33,7 @@ func main() {
 	// 127.0.0.1:8080/books/3
 	router.GET("/books/:id", getBookByID)
 	router.GET("/dbtest", getDbTest)
+	router.GET("/dbtest2", dbTest2)
 	/* 下記をコマンドラインに打ち込むことでテストできる
 		curl http://127.0.0.1:8080/books \
 	    --include \
@@ -75,4 +76,7 @@ func getBookByID(c *gin.Context) {
 func getDbTest(c *gin.Context) {
 	dbtest.DbTest()
 	c.IndentedJSON(http.StatusOK, books)
+}
+func dbTest2(c *gin.Context) {
+	dbtest.DbTest2()
 }
