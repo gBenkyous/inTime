@@ -27,6 +27,7 @@ func DbTest2() {
 	if err := client.Schema.Create(ctx); err != nil {
 		log.Fatalf("failed creating schema resources: %v", err)
 	}
+
 	if _, err = CreateUser(ctx, client); err != nil {
 		log.Println(err)
 	}
