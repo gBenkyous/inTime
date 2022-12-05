@@ -6,22 +6,24 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	"github.com/swaggo/gin-swagger"
+	_ "intimeServer/cmd/intime/docs"
+	"intimeServer/models"
 	"intimeServer/pkg/dbtest"
 	"intimeServer/pkg/keisan"
 )
 
-type book struct {
-	ID     string `json:"id"`
-	Title  string `json:"title"`
-	Author string `json:"author"`
-}
-
-var books = []book{
+var books = []models.Book{
 	{ID: "1", Title: "Harry Potter", Author: "J. K. Rowling"},
 	{ID: "2", Title: "The Lord of the Rings", Author: "J. R. R. Tolkien"},
 	{ID: "3", Title: "The Wizard of Oz", Author: "L. Frank Baum"},
 }
 
+// @title gin-swagger todos
+// @version 1.0
+// @license.name intime
+// @description 見本apiです
 func main() {
 	var i int = 1
 	i = keisan.Tasizan(1, 2)
@@ -41,16 +43,26 @@ func main() {
 	    --data '{"ID": "4", "Title": "testHONMA", "Author": "J.HONMA"}'
 	*/
 	router.POST("/books", postBook)
+	//	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json")
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
 	//http://転送されるIP:8080/books で開く
-	router.Run("localhost:8080")
+	router.Run(":8080")
 }
 
+// GetBooks ...
+// @Summary bookinfoをjsonで返す
+// @Tags Book
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} string
+// @Router /books [get]
 func getBook(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, books)
+	c.IndentedJSON(200, "books")
 }
 
 func postBook(c *gin.Context) {
-	var newBook book
+	var newBook models.Book
 
 	if err := c.BindJSON(&newBook); err != nil {
 		return

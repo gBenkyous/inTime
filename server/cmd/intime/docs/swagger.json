@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "見本apiです",
+        "title": "gin-swagger todos",
+        "contact": {},
+        "license": {
+            "name": "intime"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/books": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "summary": "bookinfoをjsonで返す",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

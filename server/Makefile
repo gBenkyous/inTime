@@ -2,7 +2,7 @@
 BINDIR=./bin
 BIN_INTIME=$(BINDIR)/intime
 ### ビルド対象となるmainの格納場所
-CMD_INTIME=./cmd/intime/main.go
+CMD_INTIME=/workspaces/cmd/intime/main.go
 ### ビルドコマンド
 GO_BUILD=go build -o
 GO_BUILD_LINUX=GOOS=linux GOARCH=amd64 go build -o
