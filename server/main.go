@@ -1,4 +1,4 @@
-package mains
+package main
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
-	//_ "intimeServer/cmd/intime/docs"
+	_ "intimeServer/docs"
 	"intimeServer/model"
 	"intimeServer/pkg/dbtest"
 	"intimeServer/pkg/keisan"
@@ -24,7 +24,7 @@ var books = []model.Book{
 // @version 1.0
 // @license.name intime
 // @description 見本apiです
-func mains() {
+func main() {
 	var i int = 1
 	i = keisan.Tasizan(1, 2)
 	fmt.Println(i)

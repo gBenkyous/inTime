@@ -1,0 +1,42 @@
+definitions:
+  model.User:
+    properties:
+      authCount:
+        type: integer
+      email:
+        example: test@mail.com
+        type: string
+      id:
+        type: integer
+      isAdmin:
+        type: boolean
+      lastname:
+        example: Packard
+        type: string
+      name:
+        example: Jack
+        type: string
+    type: object
+info:
+  contact: {}
+  description: 見本apiです
+  license:
+    name: intime
+  title: gin-swagger todos
+  version: "1.0"
+paths:
+  /books:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.User'
+      summary: bookinfoをjsonで返す
+      tags:
+      - Book
+swagger: "2.0"

@@ -35,9 +35,37 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/model.User"
                         }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.User": {
+            "type": "object",
+            "properties": {
+                "authCount": {
+                    "type": "integer"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "test@mail.com"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "isAdmin": {
+                    "type": "boolean"
+                },
+                "lastname": {
+                    "type": "string",
+                    "example": "Packard"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Jack"
                 }
             }
         }
