@@ -1,4 +1,4 @@
-package mains
+package main
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
-	//_ "intimeServer/cmd/intime/docs"
+	_ "intimeServer/docs"
 	"intimeServer/model"
 	"intimeServer/pkg/dbtest"
 	"intimeServer/pkg/keisan"
@@ -24,7 +24,7 @@ var books = []model.Book{
 // @version 1.0
 // @license.name intime
 // @description 見本apiです
-func mains() {
+func main() {
 	var i int = 1
 	i = keisan.Tasizan(1, 2)
 	fmt.Println(i)
@@ -32,7 +32,7 @@ func mains() {
 
 	router := gin.Default()
 	router.GET("/books", getBook)
-	// 127.0.0.1:8080/books/3
+	router.GET("/user", getUser)
 	router.GET("/books/:id", getBookByID)
 	router.GET("/dbtest", getDbTest)
 	/* 下記をコマンドラインに打ち込むことでテストできる
@@ -53,11 +53,20 @@ func mains() {
 // GetBooks ...
 // @Summary bookinfoをjsonで返す
 // @Tags Book
-// @Accept  json
 // @Produce  json
-// @Success 200 {object} model.User
+// @Success 200 {object} []model.Book
 // @Router /books [get]
 func getBook(c *gin.Context) {
+	c.JSON(200, books)
+}
+
+// GetUser ...
+// @Summary Userをjsonで返す
+// @Tags User
+// @Produce  json
+// @Success 200 {object} model.User
+// @Router /user [get]
+func getUser(c *gin.Context) {
 	user := model.User{
 		ID:        13218,
 		Name:      "User1",
@@ -70,21 +79,15 @@ func getBook(c *gin.Context) {
 	c.JSON(200, user)
 }
 
-type ser struct {
-	ID        int    `json:"id"`
-	Name      string `json:"name" example:"Jack"`
-	Lastname  string `json:"lastname" example:"Packard"`
-	Email     string `json:"email" example:"test@mail.com"`
-	IsAdmin   bool   `json:"isAdmin"`
-	AuthCount int    `json:"authCount"`
-}
-
-type ResponseHello struct {
-	SayHello  string
-	Number    int
-	Something interface{}
-}
-
+// 本の登録
+// @Summary book情報登録
+// @Tags Book
+// @Description  本の情報を登録します
+// @Accept  json
+// @Produce  json
+// @Param data body model.Book true "book data"
+// @Success 200 {object} model.Book
+// @Router /books [post]
 func postBook(c *gin.Context) {
 	var newBook model.Book
 
@@ -96,6 +99,14 @@ func postBook(c *gin.Context) {
 	c.IndentedJSON(http.StatusCreated, newBook)
 }
 
+// 127.0.0.1:8080/books/3 この形式
+// GetBooks ...
+// @Summary bookinfoをIDで検索しjsonで返す
+// @Tags Book
+// @Produce  json
+// @Param id path int true "book ID"
+// @Success 200 {object} model.Book
+// @Router /books/{id} [get]
 func getBookByID(c *gin.Context) {
 	id := c.Param("id")
 

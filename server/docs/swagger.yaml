@@ -1,4 +1,13 @@
 definitions:
+  model.Book:
+    properties:
+      author:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
   model.User:
     properties:
       authCount:
@@ -27,8 +36,59 @@ info:
 paths:
   /books:
     get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Book'
+            type: array
+      summary: bookinfoをjsonで返す
+      tags:
+      - Book
+    post:
       consumes:
       - application/json
+      description: Takes a book JSON and store in DB. Return saved JSON.
+      parameters:
+      - description: book data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.Book'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Book'
+      summary: book情報登録
+      tags:
+      - Book
+  /books/{id}:
+    get:
+      parameters:
+      - description: book ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Book'
+      summary: bookinfoをIDで検索しjsonで返す
+      tags:
+      - Book
+  /user:
+    get:
       produces:
       - application/json
       responses:
@@ -36,7 +96,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.User'
-      summary: bookinfoをjsonで返す
+      summary: Userをjsonで返す
       tags:
-      - Book
+      - User
 swagger: "2.0"

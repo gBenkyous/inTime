@@ -21,6 +21,27 @@ const docTemplate = `{
     "paths": {
         "/books": {
             "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "summary": "bookinfoをjsonで返す",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Book"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Takes a book JSON and store in DB. Return saved JSON.",
                 "consumes": [
                     "application/json"
                 ],
@@ -30,7 +51,65 @@ const docTemplate = `{
                 "tags": [
                     "Book"
                 ],
-                "summary": "bookinfoをjsonで返す",
+                "summary": "book情報登録",
+                "parameters": [
+                    {
+                        "description": "book data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Book"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Book"
+                        }
+                    }
+                }
+            }
+        },
+        "/books/{id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Book"
+                ],
+                "summary": "bookinfoをIDで検索しjsonで返す",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "book ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Book"
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Userをjsonで返す",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -43,6 +122,20 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "model.Book": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
         "model.User": {
             "type": "object",
             "properties": {
