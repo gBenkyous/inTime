@@ -12,4 +12,6 @@ RUN wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz \
 # go path add
 ENV PATH="$PATH:/usr/local/go/bin"
 
+RUN go install -v golang.org/x/tools/gopls@latest
+
 ENV PS1 '$ '
