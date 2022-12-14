@@ -26,7 +26,7 @@
 	// "forwardPorts": [],
 
 	// Uncomment the next line to run commands after the container is created - for example installing curl.
-	"postCreateCommand": "go install -v golang.org/x/tools/gopls@latest"
+	//"postCreateCommand": "go install -v golang.org/x/tools/gopls@latest",
 
 
 	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
