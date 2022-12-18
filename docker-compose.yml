@@ -1,0 +1,47 @@
+version: "3"
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    # 権限の有効化
+    privileged: true
+    environment:
+      # 定数
+      TZ: Asia/Tokyo
+    volumes:
+      - ./server/:/workspaces
+    command: /sbin/init
+
+  db:
+    image: mysql:8.0.20
+    environment:
+      LANG: C.UTF-8
+      MYSQL_DATABASE: sample01
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - "8081:3306"
+    # 権限の有効化
+    privileged: true
+    volumes:
+      - ./DB:/workspaces
+      - ./DB/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "8082:82"
+    # 権限の有効化
+    privileged: true
+    environment:
+      # 定数
+      TZ: Asia/Tokyo
+    volumes:
+      - ./client:/workspaces
+    command: /sbin/init
