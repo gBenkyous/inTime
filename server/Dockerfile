@@ -1,17 +1,14 @@
-FROM centos:centos7
+# 開発用
+FROM golang:1.19-alpine AS dev
+RUN apk add --no-cache git make curl
 
-RUN yum -y update && yum install -y git vim make wget \
-  && rm -rf /var/cache/yum/* \
-  && yum clean all \
-;
-# goインストール
-RUN wget https://go.dev/dl/go1.19.2.linux-amd64.tar.gz \
-  && tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz \
-  && rm -rf /go1.19.2.linux-amd64.tar.gz \
-;
-# go path add
-ENV PATH="$PATH:/usr/local/go/bin"
+# ビルド用
+FROM golang:1.19-alpine AS builder
+COPY . /go/src
+WORKDIR /go/src
+RUN go mod tidy && CGO_ENABLED=0 GOOS=linux go build -o /bin/app-server ./cmd/intime/main.go 
 
-RUN go install -v golang.org/x/tools/gopls@latest
-
-ENV PS1 '$ '
+# 本番配置用
+FROM scratch AS prod
+COPY --from=builder /bin/app-server /bin/app-server
+ENTRYPOINT ["/bin/app-server"]

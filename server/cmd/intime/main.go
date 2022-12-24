@@ -42,7 +42,7 @@ func main() {
 	*/
 	router.POST("/books", postBook)
 	//http://転送されるIP:8080/books で開く
-	router.Run("localhost:8080")
+	router.Run(":8080")
 }
 
 func getBook(c *gin.Context) {
