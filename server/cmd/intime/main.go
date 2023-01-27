@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"intimeServer/pkg/dbtest"
 	"intimeServer/pkg/keisan"
+	// 使うときにコメントアウト外してください～
+	//"intimeServer/pkg/zlog"
 )
 
 type book struct {
@@ -26,7 +27,6 @@ func main() {
 	var i int = 1
 	i = keisan.Tasizan(1, 2)
 	fmt.Println(i)
-	log.Println("OK")
 
 	router := gin.Default()
 	router.GET("/books", getBook)
