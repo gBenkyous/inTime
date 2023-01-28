@@ -1,8 +1,10 @@
-FROM centos:centos7
+FROM node:18.13.0-alpine
 
-RUN yum -y update && yum install -y git vim \
-  && rm -rf /var/cache/yum/* \
-  && yum clean all \
-;
+COPY ./docker-entrypoint.sh /
+RUN npm cache clean --force && \
+    yarn global add create-react-app && \
+    yarn cache clean && \
+    chmod +x /docker-entrypoint.sh
 
-ENV PS1 '$ '
+WORKDIR /usr/src/app/react-app
+ENTRYPOINT ["/docker-entrypoint.sh"]

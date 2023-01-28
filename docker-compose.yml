@@ -5,7 +5,7 @@ services:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8080:8080"
     # 権限の有効化
     privileged: true
     environment:
@@ -36,12 +36,11 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "8082:82"
-    # 権限の有効化
-    privileged: true
+      - "80:3000"
+    privileged: true # 権限の有効化
+    stdin_open: true # 標準入出力とエラー出力をコンテナに紐づける
+    tty: true # キーボード入力をコンテナに紐づける
     environment:
-      # 定数
       TZ: Asia/Tokyo
     volumes:
-      - ./client:/workspaces
-    command: /sbin/init
+      - ./client/app:/usr/src/app/react-app
