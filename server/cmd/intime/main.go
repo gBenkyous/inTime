@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"io"
+	//"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/go-errors/errors"
 	"intimeServer/pkg/dbtest"
-	"intimeServer/pkg/keisan"
+	//"intimeServer/pkg/keisan"
 )
 
 type book struct {
@@ -22,13 +25,27 @@ var books = []book{
 	{ID: "3", Title: "The Wizard of Oz", Author: "L. Frank Baum"},
 }
 
-func main() {
-	var i int = 1
-	i = keisan.Tasizan(1, 2)
-	fmt.Println(i)
-	log.Println("OK")
+type HttpResponse struct {
+	Message     string
+	Status      int
+	Description string
+}
 
-	router := gin.Default()
+func main() {
+	router := gin.New()
+	router.Use(gin.Logger())
+	// var i int = 1
+	// i = keisan.Tasizan(1, 2)
+	// fmt.Println(i)
+	// log.Println("OK")
+	logFile, err := os.Create("production.log")
+	if err != nil {
+		panic(err)
+	}
+	gin.DefaultWriter = io.MultiWriter(logFile, os.Stdout)
+
+	//	router := gin.Default()
+	router.Use(gin.CustomRecovery(ErrorHandler))
 	router.GET("/books", getBook)
 	// 127.0.0.1:8080/books/3
 	router.GET("/books/:id", getBookByID)
@@ -46,6 +63,10 @@ func main() {
 }
 
 func getBook(c *gin.Context) {
+	var err1 = 0
+	fmt.Println(err1)
+	var a = 1 / err1
+	fmt.Println(a)
 	c.IndentedJSON(http.StatusOK, books)
 }
 
@@ -75,4 +96,10 @@ func getBookByID(c *gin.Context) {
 func getDbTest(c *gin.Context) {
 	dbtest.DbTest()
 	c.IndentedJSON(http.StatusOK, books)
+}
+
+func ErrorHandler(c *gin.Context, err any) {
+	goErr := errors.Wrap(err, 2)
+	httpResponse := HttpResponse{Message: "Internal server error", Status: 500, Description: goErr.Error()}
+	c.AbortWithStatusJSON(500, httpResponse)
 }

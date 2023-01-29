@@ -13,6 +13,7 @@ require (
 	github.com/agext/levenshtein v1.2.1 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
+	github.com/go-errors/errors v1.4.2 // indirect
 	github.com/go-openapi/inflect v0.19.0 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
