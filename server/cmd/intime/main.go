@@ -45,6 +45,8 @@ func main() {
 	gin.DefaultWriter = io.MultiWriter(logFile, os.Stdout)
 
 	//	router := gin.Default()
+	// CustomRecoveryでエラーが発生した際の全体処理を行ってます。
+	// なのでErrorHandlerの中でlogに書き出す処理を行えばワンちゃんいけないかぁ。。。。
 	router.Use(gin.CustomRecovery(ErrorHandler))
 	router.GET("/books", getBook)
 	// 127.0.0.1:8080/books/3
