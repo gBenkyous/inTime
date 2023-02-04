@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	"intimeServer/api/handler/routerType"
+	"intimeServer/api/handler/router"
 	"intimeServer/internal/model"
 	"intimeServer/pkg/dbtest"
 	"net/http"
@@ -24,9 +24,9 @@ func SetHandlers(r *gin.Engine) {
 
 	// https://medium.com/since-i-want-to-start-blog-that-looks-like-men-do/%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AB%E9%80%81%E3%82%8A%E3%81%9F%E3%81%84interface%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9-golang-48eba361c3b4
 	//book
-	routerType.MakeBookHandlers(r)
-	routerType.MakeUserHandlers(r)
-	routerType.MakeSwaggerHandlers(r)
+	router.MakeBookHandlers(r)
+	router.MakeUserHandlers(r)
+	router.MakeSwaggerHandlers(r)
 	r.GET("/dbtest", getDbTest)
 
 }

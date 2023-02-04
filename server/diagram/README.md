@@ -4,6 +4,8 @@
 https://eltonminetto.dev/en/post/2020-07-06-clean-architecture-2years-later/
 
 https://github.com/golang-standards/project-layout/blob/master/README_ja.md
+
+または、github の既存の処理を参考に良いと思ったものは導入していっていただければ、
 - Entity layer - entity
   - entity - entityとそれの単体テスト entで対応可能な場合にはentityフォルダ不要
 - Use Case Layer - usecase - アプリケーション固有のビジネス ルール
