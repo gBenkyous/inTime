@@ -18,6 +18,18 @@ docker-compose up -d --build
 
 - http://localhost
 
+ビルド
+
+```shell
+docker-compose exec client yarn build
+```
+
+テスト実行
+
+```shell
+docker-compose exec client yarn test
+```
+
 ## Server
 
 ビルド & サーバ起動

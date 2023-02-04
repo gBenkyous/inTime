@@ -6,7 +6,7 @@
 		"../../docker-compose.yml"
 	],
 	"service": "client",
-	"workspaceFolder": "/usr/src/app/react-app", // 起動時に開くフォルダを指定
+	"workspaceFolder": "/usr/src/app", // 起動時に開くフォルダを指定
 	"shutdownAction": "stopCompose",
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	//"context": "..",
@@ -19,8 +19,10 @@
 	
 	// Add the IDs of extensions you want installed when the container is created. vscに拡張機能をいれる。
 	"extensions": [
-		"msjsdiag.vscode-react-native"
-	]
+		"msjsdiag.vscode-react-native",
+		"jingkaizhao.vscode-redux-devtools",
+		"MS-CEINTL.vscode-language-pack-ja"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
