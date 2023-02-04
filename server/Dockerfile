@@ -19,4 +19,5 @@ ENV PATH="$PATH:/root/go/bin"
 
 RUN go install -v golang.org/x/tools/gopls@latest
 
+WORKDIR /workspaces
 ENV PS1 '$ '
