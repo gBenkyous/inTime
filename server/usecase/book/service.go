@@ -16,24 +16,28 @@ var books = []model.Book{
 }
 
 // GetBooks ...
-// @Summary bookinfoをjsonで返す
-// @Tags Book
-// @Produce  json
-// @Success 200 {object} []model.Book
-// @Router /books [get]
+/*
+@Summary bookinfoをjsonで返す
+@Tags Book
+@Produce  json
+@Success 200 {object} []model.Book
+@Router /books [get]
+*/
 func GetBook(c *gin.Context) {
 	c.JSON(200, books)
 }
 
 // 本の登録
-// @Summary book情報登録
-// @Tags Book
-// @Description  本の情報を登録します
-// @Accept  json
-// @Produce  json
-// @Param data body model.Book true "book data"
-// @Success 200 {object} model.Book
-// @Router /books [post]
+/*
+@Summary book情報登録
+@Tags Book
+@Description  本の情報を登録します
+@Accept  json
+@Produce  json
+@Param data body model.Book true "book data"
+@Success 200 {object} model.Book
+@Router /books [post]
+*/
 func PostBook(c *gin.Context) {
 	var newBook model.Book
 
@@ -47,12 +51,14 @@ func PostBook(c *gin.Context) {
 
 // 127.0.0.1:8080/books/3 この形式
 // GetBooks ...
-// @Summary bookinfoをIDで検索しjsonで返す
-// @Tags Book
-// @Produce  json
-// @Param id path int true "book ID"
-// @Success 200 {object} model.Book
-// @Router /books/{id} [get]
+/*
+@Summary bookinfoをIDで検索しjsonで返す
+@Tags Book
+@Produce  json
+@Param id path int true "book ID"
+@Success 200 {object} model.Book
+@Router /books/{id} [get]
+*/
 func GetBookByID(c *gin.Context) {
 	id := c.Param("id")
 

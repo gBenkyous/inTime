@@ -6,11 +6,13 @@ import (
 )
 
 // GetUser ...
-// @Summary Userをjsonで返す
-// @Tags User
-// @Produce  json
-// @Success 200 {object} model.User
-// @Router /user [get]
+/*
+@Summary Userをjsonで返す
+@Tags User
+@Produce  json
+@Success 200 {object} model.User
+@Router /user [get]
+*/
 func GetUser(c *gin.Context) {
 	user := model.User{
 		ID:        13218,
