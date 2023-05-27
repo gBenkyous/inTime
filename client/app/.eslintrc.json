@@ -30,3 +30,8 @@
     "JSX": true
   }
 }
+// .eslintrc.jsonの具体的な役割は、以下の通りです。
+// ・ESLintの設定ファイルであることを示すために、ファイル名を.eslintrc.jsonとする。
+// ・ESLintの設定を記述する。
+// ・ESLintの設定を記述する際に、extendsとpluginsとrulesとsettingsとglobalsというプロパティを使用する。
+// ・ESLintとは、JavaScriptのコードを静的に解析して、コードの品質を保つためのツールです。
