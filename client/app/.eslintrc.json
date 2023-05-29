@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "prettier"],
+  "extends": ["react-app", "prettier"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -11,7 +11,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "import", "prettier"],
+  "plugins": ["react-hooks", "import", "prettier"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/require-default-props": "off",
@@ -30,6 +30,7 @@
     "JSX": true
   }
 }
+
 // .eslintrc.jsonの具体的な役割は、以下の通りです。
 // ・ESLintの設定ファイルであることを示すために、ファイル名を.eslintrc.jsonとする。
 // ・ESLintの設定を記述する。
