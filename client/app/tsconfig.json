@@ -23,7 +23,7 @@
     "isolatedModules": true, // isolatedModulesとは、ファイルごとにコンパイルを行うかどうかを指定するオプションです。
     "noEmit": true, // noEmitとは、コンパイル結果の出力を行うかどうかを指定するオプションです。
     "jsx": "react-jsx", // jsxとは、JSXのコード生成方法を指定するオプションです。
-    "checkJs": false // checkJsとは、.jsファイルの型チェックを行うかどうかを指定するオプションです。
+    "checkJs": true // checkJsとは、.jsファイルの型チェックを行うかどうかを指定するオプションです。
   },
   "include": [
     "src/**/*"

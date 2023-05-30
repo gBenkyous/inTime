@@ -14,7 +14,7 @@
 
 開発モードでアプリを実行します。\
 ブラウザで[http://localhost:3000](http://localhost:3000)を開いてください。  
-dockerで開いている場合3000ではなく80ポートが割り当てられているため[http://localhost:80](http://localhost:80)で開いてください。
+dockerで開いている場合3000ではなく80ポートが割り当てられているため[http://localhost](http://localhost)で開いてください。
 
 編集するとページがリロードされます。\
 コンソールにはlintエラーも表示されます。
