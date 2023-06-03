@@ -14,7 +14,8 @@
 
 開発モードでアプリを実行します。\
 ブラウザで[http://localhost:3000](http://localhost:3000)を開いてください。  
-dockerで開いている場合3000ではなく80ポートが割り当てられているため[http://localhost](http://localhost)で開いてください。
+
+dockerで開いている場合は docker-compose.yml の client の ports 設定により、ローカルホストの 80 番とコンテナの 3000 番が繋がっているので http://localhost:80 で開いてください。
 
 編集するとページがリロードされます。\
 コンソールにはlintエラーも表示されます。
