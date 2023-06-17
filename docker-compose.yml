@@ -45,4 +45,4 @@ services:
     volumes:
       - ./client/app:/usr/src/app
     working_dir: /usr/src/app
-    command: /bin/sh -c "yarn install && yarn start"
+    command: /bin/sh -c "yarn install && yarn start" # reactの起動なども行っている。

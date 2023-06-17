@@ -7,7 +7,15 @@ devブランチをマスターブランチにぶち込むときには皆が承�
 # 各種サービスコンテナの起動
 
 ```shell
+- shell
 docker-compose up -d --build
+```
+
+```vsc
+- vsc
+１．リモートエクスプローラーを開く
+２．Open Folder in Container...を選択
+３．フォルダーclientを選択
 ```
 
 ## Client

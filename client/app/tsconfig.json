@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
+    "baseUrl": "src", // baseUrlとは、import文のパスのルートディレクトリを指定するオプションです。
+    "paths": {
+      "*": ["src/*"] // pathsとは、import文のパスを変換するためのオプションです。
+    },
+    "target": "es5", // targetとは、コンパイル後のJavaScriptのバージョンを指定するオプションです。
+    "lib": [ // libとは、コンパイル時に参照するライブラリを指定するオプションです。
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "allowJs": true, // allowJsとは、TypeScriptのコンパイラが、.jsファイルをコンパイルするかどうかを指定するオプションです。
+    "skipLibCheck": true, // skipLibCheckとは、型定義ファイルのチェックをスキップするかどうかを指定するオプションです。
+    "esModuleInterop": true, // esModuleInteropとは、import * as React from 'react'のような記述をimport React from 'react'のように書き換えてくれるオプションです。
+    "allowSyntheticDefaultImports": true, // allowSyntheticDefaultImportsとは、import React from 'react'のような記述をimport * as React from 'react'のように書き換えてくれるオプションです。
+    "strict": true, // strictとは、TypeScriptのコンパイラが、より厳密な型チェックを行うかどうかを指定するオプションです。
+    "forceConsistentCasingInFileNames": true, // forceConsistentCasingInFileNamesとは、ファイル名の大文字と小文字を区別するかどうかを指定するオプションです。
+    "noFallthroughCasesInSwitch": true, // noFallthroughCasesInSwitchとは、switch文のcase節で、break文を書かないとコンパイルエラーになるかどうかを指定するオプションです。
+    "module": "esnext", // moduleとは、モジュールのコード生成方法を指定するオプションです。 esnextとすると、import文とexport文をそのまま出力します。
+    "moduleResolution": "node", // moduleResolutionとは、モジュールの解決方法を指定するオプションです。
+    "resolveJsonModule": true, // resolveJsonModuleとは、.jsonファイルをimportできるようにするかどうかを指定するオプションです。
+    "isolatedModules": true, // isolatedModulesとは、ファイルごとにコンパイルを行うかどうかを指定するオプションです。
+    "noEmit": true, // noEmitとは、コンパイル結果の出力を行うかどうかを指定するオプションです。
+    "jsx": "react-jsx", // jsxとは、JSXのコード生成方法を指定するオプションです。
+    "checkJs": true // checkJsとは、.jsファイルの型チェックを行うかどうかを指定するオプションです。
   },
   "include": [
-    "src"
+    "src/**/*"
   ]
 }
+
+
