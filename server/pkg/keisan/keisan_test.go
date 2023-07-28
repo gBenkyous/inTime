@@ -1,29 +1,24 @@
 package keisan
 
 import (
-	_"intimeServer/pkg/testPkg"
-	"fmt"
-	"testing"
 	"github.com/stretchr/testify/assert"
-  )
-   
-  func TestTasizan(t *testing.T) {
-	var i int = 1
-	i = Tasizan(2, 1)
-	fmt.Println(i)
-	assert.Equal(t, 3, i)
-  }
+	"testing"
+)
 
-  func TestHikizan(t *testing.T) {
-	var i int = 1
-	i = Hikizan(2, 1)
-	fmt.Println(i)
-	assert.Equal(t, i, 1)
-  }
+func TestTasizan(t *testing.T) {
+	var expected int = 2
+	var actual int = Tasizan(2, 1)
+	assert.Equal(t, expected, actual)
+}
 
-  func TestKakezan(t *testing.T) {
-	var i int = 1
-	i = Kakezan(2, 1)
-	fmt.Println(i)
-	assert.Equal(t, i, 2)
-  }
+func TestHikizan(t *testing.T) {
+	var expected int = 1
+	var actual int = Hikizan(2, 1)
+	assert.Equal(t, expected, actual)
+}
+
+func TestKakezan(t *testing.T) {
+	var expected int = 2
+	var actual int = Kakezan(2, 1)
+	assert.Equal(t, expected, actual)
+}
