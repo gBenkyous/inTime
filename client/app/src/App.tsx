@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
-import ArgonBox from "./components/ArgonBox";
+import ArgonBox from "components/ArgonBox";
 import Sidenav from "./examples/Sidenav";
 import Configurator from "./examples/Configurator";
 import theme from "./assets/theme";
