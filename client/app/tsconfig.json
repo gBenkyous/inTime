@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src", // baseUrlとは、import文のパスのルートディレクトリを指定するオプションです。
-    "paths": {
-      "*": ["src/*"] // pathsとは、import文のパスを変換するためのオプションです。
-    },
+    "baseUrl": ".", // baseUrlとは、import文のパスのルートディレクトリを指定するオプションです。
     "target": "es5", // targetとは、コンパイル後のJavaScriptのバージョンを指定するオプションです。
     "lib": [ // libとは、コンパイル時に参照するライブラリを指定するオプションです。
       "dom",
@@ -25,8 +22,8 @@
     "jsx": "react-jsx", // jsxとは、JSXのコード生成方法を指定するオプションです。
     "checkJs": true // checkJsとは、.jsファイルの型チェックを行うかどうかを指定するオプションです。
   },
-  "include": [
-    "src/**/*"
+  "include": [ //
+    "[src]"
   ]
 }
 
