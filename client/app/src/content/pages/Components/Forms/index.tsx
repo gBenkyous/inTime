@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import PageTitle from 'src/components/PageTitle';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import {
@@ -56,13 +56,13 @@ const currencies = [
 function Forms() {
   const [currency, setCurrency] = useState('EUR');
 
-  const handleChange = (event) => {
+  const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
     setCurrency(event.target.value);
   };
 
   const [value, setValue] = useState(30);
 
-  const handleChange2 = (event, newValue) => {
+  const handleChange2 = (event: any, newValue: SetStateAction<number>) => {
     setValue(newValue);
   };
 

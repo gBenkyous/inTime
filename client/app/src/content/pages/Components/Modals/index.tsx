@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 import PageTitle from 'src/components/PageTitle';
 import PageTitleWrapper from 'src/components/PageTitleWrapper';
@@ -28,14 +28,14 @@ import Footer from 'src/components/Footer';
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 
-function SimpleDialog(props) {
+function SimpleDialog(props: { onClose: any; selectedValue: any; open: any; }) {
   const { onClose, selectedValue, open } = props;
 
   const handleClose = () => {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value) => {
+  const handleListItemClick = (value: string) => {
     onClose(value);
   };
 
@@ -89,7 +89,7 @@ function Modals() {
     setOpen(true);
   };
 
-  const handleClose = (value) => {
+  const handleClose = (value: SetStateAction<string>) => {
     setOpen(false);
     setSelectedValue(value);
   };

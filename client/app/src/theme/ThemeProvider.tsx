@@ -7,7 +7,13 @@ export const ThemeContext = React.createContext(
   (themeName: string): void => {}
 );
 
-const ThemeProviderWrapper: React.FC = (props) => {
+// 明示的な型定義を作成します
+type ThemeProviderWrapperProps = {
+  children: React.ReactNode;
+};
+
+// 作成した型定義をReact.FCに渡します
+const ThemeProviderWrapper: React.FC<ThemeProviderWrapperProps> = (props) => {
   const curThemeName = localStorage.getItem('appTheme') || 'PureLightTheme';
   const [themeName, _setThemeName] = useState(curThemeName);
   const theme = themeCreator(themeName);

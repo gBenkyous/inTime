@@ -22,9 +22,7 @@
     "jsx": "react-jsx", // jsxとは、JSXのコード生成方法を指定するオプションです。
     "checkJs": true // checkJsとは、.jsファイルの型チェックを行うかどうかを指定するオプションです。
   },
-  "include": [ //
-    "[src]"
-  ]
+  "include": ["src/**/*"]
 }
 
 
