@@ -18,6 +18,10 @@ const Loader = <P extends object>(Component: ComponentType<P>) => (props: P) =>
 
 const Overview = Loader(lazy(() => import('src/content/overview')));
 
+// Dashboard
+
+const Dashboard = Loader(lazy(() => import('src/content/dashboards/Dashboard')));
+
 // Dashboards
 
 const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto')));
@@ -88,6 +92,10 @@ const routes: RouteObject[] = [
       {
         path: 'overview',
         element: <Navigate to="/" replace />
+      },
+      {
+        path: 'dashboard',
+        element: <Dashboard />
       },
       {
         path: 'status',
