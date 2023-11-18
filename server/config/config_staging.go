@@ -4,6 +4,5 @@ package config
 // https://eltonminetto.dev/post/2018-06-25-golang-usando-build-tags/
 
 const (
-	// TODO : ログ出力先を決める
-	LOG_FILE_NAME = "./test.log"
+	LOG_FILE_NAME = "/var/log/go/application.log"
 )

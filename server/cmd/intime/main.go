@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"intimeServer/api/handler"
+
+	"github.com/gin-gonic/gin"
 )
 
 // @title gin-swagger todos
