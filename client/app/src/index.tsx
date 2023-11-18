@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -7,15 +7,19 @@ import App from 'src/App';
 import { SidebarProvider } from 'src/contexts/SidebarContext';
 import * as serviceWorker from 'src/serviceWorker';
 
-ReactDOM.render(
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+
+const root = ReactDOM.createRoot(rootElement);
+
+root.render(
   <HelmetProvider>
     <SidebarProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </SidebarProvider>
-  </HelmetProvider>,
-  document.getElementById('root')
+  </HelmetProvider>
 );
 
 serviceWorker.unregister();
