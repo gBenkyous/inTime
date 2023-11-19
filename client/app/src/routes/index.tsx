@@ -1,7 +1,7 @@
 import { Navigate, RouteObject } from 'react-router-dom';
-import { dashboardRoutes } from './dashboardRoutes';
-import { applicationRoutes } from './applicationRoutes';
-import { componentRoutes } from './componentRoutes';
+import { dashboardRoutes } from './category/dashboardRoutes';
+import { applicationRoutes } from './category/applicationRoutes';
+import { componentRoutes } from './category/componentRoutes';
 import { createRoute, createSubRoute } from './utils';
 
 import BaseLayout from 'src/layouts/BaseLayout';

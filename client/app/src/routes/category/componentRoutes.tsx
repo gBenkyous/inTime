@@ -1,5 +1,5 @@
-import { createRoute } from './utils';
-import { Buttons, Modals, Accordions, Tabs, Badges, Tooltips, Avatars, Cards, Forms } from './lazyLoadedPages';
+import { createRoute } from '../utils';
+import { Buttons, Modals, Accordions, Tabs, Badges, Tooltips, Avatars, Cards, Forms } from '../lazyLoadedPages';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Navigate } from 'react-router-dom';
 

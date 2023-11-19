@@ -1,5 +1,5 @@
-import { createRoute } from './utils';
-import { Dashboard, Crypto, Messenger } from './lazyLoadedPages';
+import { createRoute } from '../utils';
+import { Dashboard, Crypto, Messenger } from '../lazyLoadedPages';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Navigate } from 'react-router-dom';
 
