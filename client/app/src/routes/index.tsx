@@ -5,7 +5,8 @@ import { componentRoutes } from './category/componentRoutes';
 import { createRoute, createSubRoute } from './utils';
 
 import BaseLayout from 'src/layouts/BaseLayout';
-import { Overview, Status404, Status500, StatusComingSoon, StatusMaintenance } from './lazyLoadedPages';
+import { Overview, Status404, Status500, StatusComingSoon, StatusMaintenance } from './exportedPages';
+import { mocRoutes } from './category/mocsRoutes';
 
 const routes: RouteObject[] = [
   {
@@ -24,6 +25,7 @@ const routes: RouteObject[] = [
       { path: '*', element: <Status404 /> }     
     ]
   },
+  ...mocRoutes,
   ...dashboardRoutes,
   ...applicationRoutes,
   ...componentRoutes

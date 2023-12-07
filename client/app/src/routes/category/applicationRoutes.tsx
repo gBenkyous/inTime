@@ -1,5 +1,5 @@
 import { createRoute, createSubRoute } from '../utils';
-import { Transactions, UserProfile, UserSettings } from '../lazyLoadedPages';
+import { Transactions, UserProfile, UserSettings } from '../exportedPages';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import { Navigate } from 'react-router-dom';
 

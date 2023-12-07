@@ -21,7 +21,10 @@
 	"extensions": [
 		"msjsdiag.vscode-react-native",
 		"jingkaizhao.vscode-redux-devtools",
-		"MS-CEINTL.vscode-language-pack-ja"
+		"MS-CEINTL.vscode-language-pack-ja",
+		"github.copilot",
+		"github.copilot-chat",
+		"github.copilot-labs"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
