@@ -25,3 +25,15 @@ flowchart LR
     id1(View) -- User action --> id2(Controller) -- Update -->  id1
     id2(Controller) -- Update --> id3(Model) -- Notify --> id2
 ``` 
+
+## 起動
+make build // ビルド
+make run // 起動
+
+### swagger
+http://localhost:8080/swagger/index.html
+
+#### swaggerの生成
+swaggerを生成するためにはファイルにコメントを書く必ファイルにコメントを書く必要がある。
+その後、swag initを実行することでswaggerのjsonが生成される。
+make swagInit

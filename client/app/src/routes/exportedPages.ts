@@ -23,4 +23,4 @@ export const Tooltips = Loader(lazy(() => import('src/content/pages/Components/T
 export const Avatars = Loader(lazy(() => import('src/content/pages/Components/Avatars')));
 export const Cards = Loader(lazy(() => import('src/content/pages/Components/Cards')));
 export const Forms = Loader(lazy(() => import('src/content/pages/Components/Forms')));
-export const Moc = Loader(lazy(() => import('/usr/src/app/src/pages/mocs/Moc')));
+export const Moc = Loader(lazy(() => import('../pages/mocks/Mock')));
