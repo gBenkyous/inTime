@@ -21,7 +21,8 @@
 	"extensions": [
 		"msjsdiag.vscode-react-native",
 		"jingkaizhao.vscode-redux-devtools",
-		"MS-CEINTL.vscode-language-pack-ja"
+		"MS-CEINTL.vscode-language-pack-ja",
+		"emeraldwalk.RunOnSave"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
