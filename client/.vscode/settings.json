@@ -2,8 +2,8 @@
     "emeraldwalk.runonsave": {
         "commands": [
             {
-                "match": "*.tsx",
-                "cmd": "yarn install"
+                "match": "\\.tsx$",
+                "cmd": "cd ./app && yarn install"
             }
         ]
     }
