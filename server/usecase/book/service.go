@@ -3,9 +3,11 @@ package book
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	_ "intimeServer/docs"
 	"intimeServer/internal/model"
+	"intimeServer/pkg/zlog"
+
+	"github.com/gin-gonic/gin"
 )
 
 // インターフェースアダプタ層
@@ -24,6 +26,7 @@ var books = []model.Book{
 @Router /books [get]
 */
 func GetBook(c *gin.Context) {
+	zlog.Error("aaaaa")
 	c.JSON(200, books)
 }
 
