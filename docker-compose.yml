@@ -43,6 +43,6 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - ./client/app:/usr/src/app
+      - ./client:/usr/src
     working_dir: /usr/src/app
     command: /bin/sh -c "yarn install && yarn start" # reactの起動なども行っている。

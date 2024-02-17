@@ -6,7 +6,7 @@
 		"../../docker-compose.yml"
 	],
 	"service": "client",
-	"workspaceFolder": "/usr/src/app", // 起動時に開くフォルダを指定
+	"workspaceFolder": "/usr/src", // 起動時に開くフォルダを指定
 	"shutdownAction": "stopCompose",
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	//"context": "..",
@@ -25,6 +25,7 @@
 		"github.copilot",
 		"github.copilot-chat",
 		"github.copilot-labs"
+		"emeraldwalk.RunOnSave"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
