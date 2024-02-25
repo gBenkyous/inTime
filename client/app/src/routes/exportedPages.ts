@@ -24,3 +24,4 @@ export const Avatars = Loader(lazy(() => import('src/content/pages/Components/Av
 export const Cards = Loader(lazy(() => import('src/content/pages/Components/Cards')));
 export const Forms = Loader(lazy(() => import('src/content/pages/Components/Forms')));
 export const Moc = Loader(lazy(() => import('../pages/mocks/Mock')));
+export const Moc2 = Loader(lazy(() => import('../pages/mocks/Mock2')));
